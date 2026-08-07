@@ -199,7 +199,7 @@ void mastermind(int color, int places, vector<int> solution)
 
 int main()
 {
-	vector<int> v{1,2,1,3, 2};
+	vector<int> v{1,3,1,3, 2};
 	mastermind(4, 5, v);
 	return 0;
 }
