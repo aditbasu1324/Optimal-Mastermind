@@ -76,7 +76,7 @@ int decode(vector<int> a, int color, int places)
 }
 int RandomOutput(const vector<int> candidate_indices)
 {
-	return candidate_indices[10000];
+	return candidate_indices[1000];
 }
 
 int ComputerOutput(const vector<int>& candidate_codes, const vector<vector<int>>& storage, int N, int places, int count)
@@ -94,7 +94,7 @@ int ComputerOutput(const vector<int>& candidate_codes, const vector<vector<int>>
 	}
 
 	// make decision based on candidate codes
-	// currently have storage maps, need a reverse map from indicies to new
+	// currently have storage maps, need a reverse map from indices to new
 	int current_maximum{ N + 1 };
 	int max_index{ 0 };
 	for (int i{ 0 }; i < N; ++i)
@@ -125,6 +125,7 @@ int ComputerOutput(const vector<int>& candidate_codes, const vector<vector<int>>
 
 }
 
+// generates all codes in a step by step manner
 vector<vector<int>> generate_all_codes(int color, int places, int N)
 {
 	vector<vector<int>> all_codes;
@@ -196,7 +197,8 @@ void mastermind(int color, int places, vector<int> solution)
 	}
 
 	// zero means candidate
-	while (count > 10000 && no_of_guesses > 0)
+	// here new_candidate_indices are required to run the new loop
+	while (count > 1000 && no_of_guesses > 0)
 	{
 		vector<int> new_candidate_indices{};
 		cout << "The number of potential codes is: " << count << '\n';
@@ -264,7 +266,7 @@ void mastermind(int color, int places, vector<int> solution)
 
 int main()
 {
-	vector<int> v{ 1,2,1,3,2,8 };
+	vector<int> v{ 1,2,1,5,2,8 };
 	mastermind(10, 6, v);
 	return 0;
 }
